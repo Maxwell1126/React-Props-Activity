@@ -21,16 +21,9 @@ class App extends Component {
 
   decreaseNumber = (inputNumber) => {
     this.setState({
-      total: parseInt(this.state.total) - 1,
+      total: parseInt(this.state.total) - parseInt(inputNumber),
     });
   }
-
-  // decreaseNumber = (event) => {
-  //   this.setState({
-  //     number: (this.state.number) - 1,
-  //   })
-  //   // this.props.decreaseNumber(number);
-  // (event.target.value)}
 
   render() {
     return (

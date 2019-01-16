@@ -22,15 +22,8 @@ class EnterNumber extends Component {
 
     decreaseNumber = (event) => {
 
-        this.props.decreaseNumber(event.target.value);
+        this.props.decreaseNumber(this.state.number);
     }
-
-    // decreaseNumber = (event) => {
-    //     this.setState({
-    //         number: (event.target.value) - 1,
-    //     })
-    //     this.props.decreaseNumber(number);
-    // }
 
     render() {
         return (
