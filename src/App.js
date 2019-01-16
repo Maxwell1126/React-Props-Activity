@@ -1,26 +1,49 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Header from './Components/Header.js';
+import EnterNumber from './Components/EnterNumber.js';
 import './App.css';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state={
+      total:0,
+    }
+  }
+
+
+  increaseNumber = (inputNumber) => {
+    
+    this.setState({  
+      total: parseInt(this.state.total) + parseInt(inputNumber),
+    });
+  }
+
+  decreaseNumber = (inputNumber) => {
+    this.setState({
+      total: parseInt(this.state.total) - 1,
+    });
+  }
+
+  // decreaseNumber = (event) => {
+  //   this.setState({
+  //     number: (this.state.number) - 1,
+  //   })
+  //   // this.props.decreaseNumber(number);
+  // (event.target.value)}
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Header />
+        <div className="EnterNumber">
+          <EnterNumber currentNumber={this.state.total}
+            changeNumber={this.changeNumber}
+            increaseNumber={this.increaseNumber}
+            decreaseNumber={this.decreaseNumber} />
+        </div>
       </div>
+      
     );
   }
 }
